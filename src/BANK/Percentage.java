@@ -1,7 +1,7 @@
 package BANK;
 
-public class Debit extends Accounts{
-    public Debit(long number,double amount,String currency){
+public class Percentage extends Accounts{
+    public Percentage(long number,double amount,String currency){
         super(number, amount, currency);
     }
     //перевести на
@@ -59,7 +59,4 @@ public class Debit extends Accounts{
             System.err.println("Наименование валют не совпадает");
         }
     }
-
-
-
 }

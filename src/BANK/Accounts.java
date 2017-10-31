@@ -22,15 +22,16 @@ public abstract class Accounts {
     public String getCurrency(){
         return currency;
     }
+
     //перевести на
-    public abstract void transferTo();
+    public abstract void transferTo(Accounts A, double amount, String currency);
+
     //перевести со
-    public abstract void transferFrom();
+    public abstract void transferOut(Accounts A, double amount, String currency);
+
     //снять
-    public abstract void withdraw();
+    public abstract void withdraw(double amount, String currency);
+
     //пополнить
-    public abstract void replenish();
-
-
-
+    public abstract void add(double amount, String currency);
 }

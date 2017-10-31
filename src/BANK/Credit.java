@@ -1,7 +1,7 @@
 package BANK;
 
-public class Debit extends Accounts{
-    public Debit(long number,double amount,String currency){
+public class Credit extends Accounts {
+    public Credit(long number,double amount,String currency){
         super(number, amount, currency);
     }
     //перевести на
@@ -23,13 +23,9 @@ public class Debit extends Accounts{
     @Override
     public void transferOut(Accounts A,double amount,String currency){
         if(getCurrency()==currency){
-            if(getAmount()>=amount){
-                setAmount(getAmount()-amount);
-                A.setAmount(A.getAmount()+amount);
-                System.out.println("Операция успешно проведена");
-            }else {
-                System.out.println("Недостаточно средств на счете");
-            }
+           setAmount(getAmount()-amount);
+           A.setAmount(A.getAmount()+amount);
+           System.out.println("Операция успешно проведена");
         }else{
             System.err.println("Наименование валют не совпадает");
         }
@@ -38,12 +34,8 @@ public class Debit extends Accounts{
     @Override
     public void withdraw(double amount,String currency){
         if(getCurrency()==currency){
-            if(getAmount()>=amount) {
-                setAmount(getAmount() - amount);
-                System.out.println("Операция успешно проведена");
-            }else{
-                System.err.println("Недостаточно средств на счете");
-            }
+           setAmount(getAmount() - amount);
+           System.out.println("Операция успешно проведена");
         }else {
             System.err.println("Наименование валют не совпадает");
         }
@@ -59,7 +51,4 @@ public class Debit extends Accounts{
             System.err.println("Наименование валют не совпадает");
         }
     }
-
-
-
 }
