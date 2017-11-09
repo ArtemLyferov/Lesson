@@ -1,4 +1,4 @@
-package BANK;
+package BANK.accounts;
 
 public class Debit extends Accounts{
     public Debit(long number,double amount,String currency){

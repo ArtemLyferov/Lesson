@@ -1,18 +1,65 @@
 package BANK;
 
 public class Clients {
-    private final String name;
-    private final String surname;
+    private String name;
+    private String surname;
     private final String passport;
 
     public Clients(String name,String surname,String passport){
-        this.name=name;
-        this.surname=surname;
+        setName(name);
+        setSurname(surname);
         this.passport=passport;
     }
-    @Override
-    public String toString(){
-       return String.format("Клиент:\n\tИмя: %s\n\tФамилия: %s\n\tНомер паспорта: %s\n",name, surname, passport);
+
+    public void setName(String name) {
+        if(name==null||name.isEmpty()){
+            throw new IllegalArgumentException("Имя не указано");
+        }
+        this.name = name;
     }
 
+    public void setSurname(String surname) {
+        if(surname==null||surname.isEmpty()){
+            throw new IllegalArgumentException("Фамилия не указана");
+        }
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getSurname() {
+        return this.surname;
+    }
+
+    public String getPassport() {
+        return this.passport;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj==null){
+            return false;
+        }
+        if (obj.getClass()!=Clients.class){
+            return false;
+        }
+        Clients other=(Clients)obj;
+        return this.passport.equals(other.passport);
+    }
+
+    @Override
+    public int hashCode() {
+        return this.passport.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Clients{" +
+                "name='" + this.name + '\'' +
+                ", surname='" + this.surname + '\'' +
+                ", passport='" + this.passport + '\'' +
+                '}';
+    }
 }

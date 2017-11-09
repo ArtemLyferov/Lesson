@@ -1,4 +1,4 @@
-package BANK;
+package BANK.accounts;
 
 public abstract class Accounts {
     private final long  number;//номер
